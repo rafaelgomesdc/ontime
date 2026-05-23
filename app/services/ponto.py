@@ -3,16 +3,19 @@ from datetime import datetime
 from app.models.ponto_model import Ponto_Model
 
 class Ponto:
+    ponto_model = Ponto_Model()
+
     def __init__(self):
         pass
 
     def Registrar_Ponto(self, page, ft):
         dados = datetime.now().strftime("%d/%m/%Y %H:%M")
-        Ponto_Model.Salvar_Ponto(dados)
+        self.ponto_model.Salvar_Ponto(dados)
 
         self.Exibir_Ultimo_Ponto(page, ft)
 
     def Exibir_Ultimo_Ponto(self, page, ft):
+        #Adiciona o último ponto marcado na tela
         ultimo_ponto = self.Consultar_Ultimo_Ponto()
 
         ui_ultima_marcação = ft.Text(
@@ -28,10 +31,4 @@ class Ponto:
         )
 
     def Consultar_Ultimo_Ponto(self):
-        with open(os.path.abspath("log/log.txt"), "r") as log:
-            pontos_registrados = log.readlines()
-
-        if pontos_registrados:
-            return pontos_registrados[-1].strip()
-        else:
-            return "Não há pontos registrados."
+        return self.ponto_model.Carregar_Ultimo_Ponto()

@@ -34,7 +34,7 @@ class Home_view:
         )
 
         self.ui_txt_ultima_marcacao = ft.Text(
-            value="Última marcação hoje:",
+            value="Última marcação:",
             size=20
         )
 

@@ -1,7 +1,9 @@
 import asyncio
 
-async def relogio(home):
-    tempo = 3600
+class Relogio:
+
+    async def relogio(home):
+        tempo = 3600
     
 
     
