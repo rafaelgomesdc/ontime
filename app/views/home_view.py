@@ -3,13 +3,15 @@ import os
 
 sys.path.append(os.path.abspath("../services"))
 
-from app.services.ponto import Registrar_Ponto
+from app.services.ponto import Ponto
 import flet as ft
 
 import asyncio
 from datetime import datetime
 
 class Home_view:
+    ponto_controller = Ponto()
+
     def __init__(self, page: ft.Page):
         self.page = page
         #self.clock = True
@@ -64,7 +66,7 @@ class Home_view:
 
     async def Marcar_ponto(self):
         #Ação do botão "marcar ponto"
-        Registrar_Ponto(self.page, ft)
+        self.ponto_controller.Registrar_Ponto(self.page, ft)
         self.page.update()
 
     async def relogio(self):
