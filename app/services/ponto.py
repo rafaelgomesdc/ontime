@@ -9,7 +9,11 @@ class Ponto:
         pass
 
     def Registrar_Ponto(self, page, ft):
-        dados = datetime.now().strftime("%d/%m/%Y %H:%M")
+        dados = {
+            "data": datetime.now().strftime("%d/%m/%Y"),
+            "horario": datetime.now().strftime("%H:%M"),
+            "motivo": ""
+        }
         self.ponto_model.Salvar_Ponto(dados)
 
         self.Exibir_Ultimo_Ponto(page, ft)
