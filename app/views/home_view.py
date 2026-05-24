@@ -1,13 +1,13 @@
+import flet as ft
 import sys
 import os
+import asyncio
+from datetime import datetime
 
 sys.path.append(os.path.abspath("../services"))
 
 from app.services.ponto import Ponto
-import flet as ft
-
-import asyncio
-from datetime import datetime
+from utils.utils import relogio
 
 class Home_view:
     ponto_controller = Ponto()
@@ -38,7 +38,7 @@ class Home_view:
             size=20
         )
 
-        self.page.run_task(self.relogio)
+        self.page.run_task(relogio, self)
 
         self.row_titulo = ft.Row(
             self.ui_titulo,
@@ -68,11 +68,3 @@ class Home_view:
         #Ação do botão "marcar ponto"
         self.ponto_controller.Registrar_Ponto(self.page, ft)
         self.page.update()
-
-    async def relogio(self):
-        #Atualiza o relógio em tempo real
-        while True:
-            self.ui_relogio.value = datetime.now().strftime("%H:%M:%S")
-            self.ui_relogio.update()
-
-            await asyncio.sleep(1)
