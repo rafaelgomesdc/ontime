@@ -34,5 +34,12 @@ class Ponto:
             )
         )
 
+    def Exibir_Pontos_Dia_Atual(self):
+        pontos = self.Consultar_Pontos_Dia_Atual()
+
     def Consultar_Ultimo_Ponto(self):
         return self.ponto_model.Carregar_Ultimo_Ponto()
+    
+    def Consultar_Pontos_Dia_Atual(self):
+        dia = datetime.now("%d%m")
+        return self.ponto_model.Carregar_Pontos_Dia()
