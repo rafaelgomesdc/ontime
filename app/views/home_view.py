@@ -12,7 +12,7 @@ from utils.utils import cronometro
 
 class Home_view:
     ponto_controller = Ponto()
-    is_running = True #Cronômetro de tempo trabalhado
+    is_running = False #Cronômetro de tempo trabalhado
 
     def __init__(self, page: ft.Page):
         self.page = page
@@ -86,5 +86,4 @@ class Home_view:
             self.is_running = False
         else:
             self.is_running = True
-        print(self.is_running)
         self.page.update()
