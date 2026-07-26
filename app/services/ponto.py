@@ -2,7 +2,7 @@ import os
 from datetime import datetime
 from app.models.ponto_model import Ponto_Model
 
-class Ponto:
+class Ponto: #Ponto Controller
     ponto_model = Ponto_Model()
 
     def __init__(self):

@@ -14,7 +14,6 @@ class Home_view:
 
     def __init__(self, page: ft.Page):
         self.page = page
-        #self.clock = True
 
     def build(self):
         #Retorna o conteúdo da tela para ser carregado pela main
@@ -23,22 +22,22 @@ class Home_view:
             size=40
         )
 
-        self.ui_relogio = ft.Text(
+        self.ui_relogio = ft.Text( #Relógio
             value="00:00:00",
             size=40
         )
 
-        self.bt_marcar_ponto = ft.ElevatedButton(
+        self.bt_marcar_ponto = ft.ElevatedButton( #Marcar ponto
             "Marcar Ponto", 
             on_click=self.Marcar_ponto
         )
 
-        self.ui_txt_ultima_marcacao = ft.Text(
+        self.ui_txt_ultima_marcacao = ft.Text( #Título p/ histórico de marcação
             value="Última marcação:",
             size=20
         )
 
-        self.page.run_task(relogio, self)
+        self.page.run_task(relogio, self) #Inicia o funcionamento do relógio
 
         self.row_titulo = ft.Row(
             self.ui_titulo,

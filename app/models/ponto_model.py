@@ -30,8 +30,8 @@ class Ponto_Model:
             ponto = cursor.fetchone()
 
         if ponto:
-            #return pontos_registrados[-1].strip()
-            return ponto
+            ponto_formatado = f"{ponto[1]} | {ponto[2]}"
+            return ponto_formatado
         else:
             return "Não há pontos registrados."
         
